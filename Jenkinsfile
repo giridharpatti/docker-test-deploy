@@ -6,7 +6,7 @@ pipeline {
     stage('Deploy') {
       steps {
         sh '''
-        ssh root@10.0.1.37
+        ssh -T root@10.0.1.37
         echo 'Deploying docker-compose in 10.0.1.37'
         cd httpd-deploy
         docker-compose up -d
