@@ -5,8 +5,8 @@ pipeline {
   stages {
     stage('Deploy') {
       steps {
-        sh '''
         ssh root@10.0.1.37
+        sh '''
         echo 'Deploying docker-compose in 10.0.1.37'
         sh "rm -rf *"
         sh "git clone -b develop git@github.com:giridharpatti/docker-test-deploy.git"
