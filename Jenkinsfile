@@ -1,24 +1,16 @@
 pipeline {
   agent {
-    label 'slave3'
+    label 'slave1'
   }
-  environment{
-     CODEDIR='/var/lib/jenkins/workspace/docker-deploy/dockertest-deploy'    
-    }
   stages {
-     stage('clone repo') {
-       steps {
-        sh "rm -rf *"
-        sh "git clone -b develop git@github.com:giridharpatti/dockertest.git"
-       }
-     }
-    stage('Build') {
+    stage('Deploy') {
       steps {
-        dir("${env.CODEDIR}") {
-        echo 'Building docker-compose'
         sh '''
+        ssh root@10.0.1.37
+        echo 'Deploying docker-compose in 10.0.1.37'
+        cd httpd-deploy
         docker-compose up -d
-        }
+        '''
       }
     }
   }
