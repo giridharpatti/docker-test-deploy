@@ -8,7 +8,7 @@ pipeline {
         script{
         sh '''
         ssh root@10.0.1.37 /bin/bash &&
-        ifconfig &&
+        hostname -I &&
         echo 'Deploying docker-compose in 10.0.1.37' &&
         rm -rf * &&
         git clone -b develop git@github.com:giridharpatti/docker-test-deploy.git &&
