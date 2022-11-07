@@ -7,7 +7,7 @@ pipeline {
       steps {
         script{
         sh '''
-        ssh user@server /bin/bash <<'EOT'
+        ssh root@10.0.1.37 /bin/bash <<'EOT'
         echo 'Deploying docker-compose in 10.0.1.37'
         rm -rf *
         git clone -b develop git@github.com:giridharpatti/docker-test-deploy.git
