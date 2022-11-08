@@ -7,7 +7,7 @@ pipeline {
       steps {
         script{
         sh '''
-        ssh root@10.0.1.37 /bin/bash<< EOF
+        ssh root@10.0.1.37 /bin/bash << EOF
           hostname -I &&
           echo 'Deploying docker-compose in 10.0.1.37' &&
           rm -rf * &&
@@ -16,7 +16,7 @@ pipeline {
           sed -i 's/version/$version/g' docker-compose.yml &&
           docker-compose up -d &&
           exit 0
-        EOF
+        << EOF
         '''
         }
       }
