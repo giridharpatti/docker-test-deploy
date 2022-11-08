@@ -13,6 +13,7 @@ pipeline {
         rm -rf * &&
         git clone -b develop git@github.com:giridharpatti/docker-test-deploy.git &&
         cd docker-test-deploy &&
+        sed -i 's/version/$version/g' docker-compose.yml
         aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 710222791487.dkr.ecr.ap-south-1.amazonaws.com &&
         docker-compose up -d &&
         exit 0
