@@ -12,7 +12,7 @@ pipeline {
         rm -rf * &&
         git clone -b develop git@github.com:giridharpatti/docker-test-deploy.git &&
         cd docker-test-deploy &&
-        sed -i 's/version/$version/g' docker-compose.yml &&
+        sed -i 's/imageversion/$version/g' docker-compose.yml &&
         docker-compose up -d &&
         exit
         """
