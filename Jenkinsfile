@@ -16,7 +16,7 @@ pipeline {
         sed -i 's/version/$version/g' docker-compose.yml &&
         docker-compose up -d &&
         exit 0
-        << EOF`
+        << EOF
         '''
         }
       }
