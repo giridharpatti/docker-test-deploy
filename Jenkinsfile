@@ -15,8 +15,8 @@ pipeline {
         cd docker-test-deploy &&
         sed -i 's/version/$version/g' docker-compose.yml &&
         docker-compose up -d &&
+EOF
         exit 0
-        << EOF
         '''
         }
       }
