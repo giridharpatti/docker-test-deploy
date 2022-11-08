@@ -7,7 +7,7 @@ pipeline {
       steps {
         script{
         sh '''
-        ssh root@10.0.1.37 << EOF
+        ssh root@10.0.1.37 /bin/bash<< EOF
           hostname -I &&
           echo 'Deploying docker-compose in 10.0.1.37' &&
           rm -rf * &&
